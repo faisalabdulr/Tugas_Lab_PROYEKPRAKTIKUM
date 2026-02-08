@@ -41,33 +41,3 @@ void menu_sort_buku() {
 
     } while (pilihan != 0);
 }
-
-/MAIN PROGRAM
-
-int main() {
-    int menu;
-
-    do {
-        printf("\n=== MENU UTAMA ===\n");
-        printf("8. Sort Buku\n");
-        printf("0. Exit\n");
-        printf("Pilih menu: ");
-        scanf("%d", &menu);
-
-        switch (menu) {
-            case 8:
-                menu_sort_buku();
-                break;
-
-            case 0:
-                printf("Program selesai.\n");
-                break;
-
-            default:
-                printf("Menu tidak valid.\n");
-        }
-
-    } while (menu != 0);
-
-    return 0;
-}
