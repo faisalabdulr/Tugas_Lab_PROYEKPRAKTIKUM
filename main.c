@@ -1,44 +1,15 @@
-
-
 #include <stdio.h>
-
-void insert_book() {
-    printf("insert book\n");
-}
-
-void view_transactions() {
-    printf("view transactions\n");
-}
-
-void view_books() {
-    printf("view books\n");
-}
-
-void delete_transaction() {
-    printf("delete transaction\n");
-}
-
-void delete_book() {
-    printf("delete book\n");
-}
-
-void exit_menu() {
-    printf("exit menu\n");
-}
-
-void insert_transaction() {
-    printf("insert transaction\n");
-}
-void sort_books(int sort_type) {
-    if (sort_type == 1) {
-        printf("sort books by name\n");
-    } else if (sort_type == 2) {
-        printf("sort books by price\n");
-    }
-}
+#include "book.h"
+#include "transaction.h"
+#include "sort_buku.h"
+#include "data.h"
 
 int main() {
     int input_menu;
+
+    // Load data dari file saat program mulai
+    load_data();
+    load_history();
 
     do {
         printf("\nPilih Menu:\n");
@@ -50,51 +21,55 @@ int main() {
         printf("6. Exit\n");
         printf("7. Input Transaksi\n");
         printf("8. Sort Buku\n");
+        printf("Pilih: ");
 
-        scanf("%d", &input_menu);
+        // VALIDASI INPUT MENU
+        if (scanf("%d", &input_menu) != 1) {
+            while (getchar() != '\n'); // buang input invalid
+            printf("Input harus berupa angka!\n");
+            continue;
+        }
 
         switch (input_menu) {
             case 1:
                 insert_book();
                 break;
+
             case 2:
                 view_transactions();
                 break;
+
             case 3:
                 view_books();
                 break;
+
             case 4:
                 delete_transaction();
                 break;
+
             case 5:
                 delete_book();
                 break;
+
             case 6:
-                exit_menu();
+                save_history();
+                save_data();
+                printf("Data disimpan. Keluar program.\n");
                 break;
+
             case 7:
                 insert_transaction();
                 break;
-            case 8: {
-                int input_sort;
 
-                do {
-                    printf("Pilih sort:\n");
-                    printf("1. Nama buku (ascending)\n");
-                    printf("2. Harga buku (descending)\n");
-                    scanf("%d", &input_sort);
-
-                    if (input_sort != 1 && input_sort != 2) {
-                        printf("Sort tidak valid.\n");
-                    }
-                } while (input_sort != 1 && input_sort != 2);
-
-                sort_books(input_sort);
+            case 8:
+                sort_menu();
                 break;
-            }
+
             default:
-                printf("Menu tidak valid\n");
+                printf("Menu tidak valid!\n");
         }
+
     } while (input_menu != 6);
+
     return 0;
 }
