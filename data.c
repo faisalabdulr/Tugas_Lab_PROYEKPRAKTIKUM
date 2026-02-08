@@ -10,6 +10,7 @@ History daftarHistory[MAX_HISTORY];
 int jumlahHistory = 0;
 
 void loadBuku() {
+    jumlahBuku = 0;
     FILE *fp = fopen("databuku.txt", "r");
     if(fp != NULL) {
         char line[200];

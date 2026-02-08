@@ -17,6 +17,18 @@ typedef struct {
     double total;
 } History;
 
+void viewBuku();
+
+void loadBuku();
+
+void saveAndExit();
+
+void delete_transaction();
+
+void delete_book();
+
+void insert_book();
+
 extern Buku daftarBuku[MAX_BUKU];
 extern int jumlahBuku;
 

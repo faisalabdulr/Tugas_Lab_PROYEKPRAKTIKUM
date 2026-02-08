@@ -56,10 +56,10 @@ int main() {
                 insert_book();
                 break;
             case 2:
-                view_transactions();
+                viewBuku();
                 break;
             case 3:
-                view_books();
+                viewBuku();
                 break;
             case 4:
                 delete_transaction();
@@ -68,10 +68,10 @@ int main() {
                 delete_book();
                 break;
             case 6:
-                exit_menu();
+                saveAndExit();
                 break;
             case 7:
-                insert_transaction();
+                ;
                 break;
             case 8: {
                 int input_sort;

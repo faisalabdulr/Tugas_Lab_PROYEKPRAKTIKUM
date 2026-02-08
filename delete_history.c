@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#include "data.h"
+
 #define MAX_HISTORY 100
 
 // data dummy history (sementara)
